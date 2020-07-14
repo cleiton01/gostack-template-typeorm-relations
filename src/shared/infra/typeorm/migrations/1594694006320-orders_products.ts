@@ -16,19 +16,19 @@ export class ordersProducts1594694006320 implements MigrationInterface {
             },
             {
               name: 'order_id',
-              type: 'uuid',
+              type: 'varchar',
             },
             {
               name: 'product_id',
-              type: 'uuid',
+              type: 'varchar',
             },
             {
               name: 'price',
-              type: 'decimal(5,2)',
+              type: 'decimal(10,2)',
             },
             {
               name: 'quantity',
-              type: 'integer',
+              type: 'int',
             },
             {
               name: 'created_at',
