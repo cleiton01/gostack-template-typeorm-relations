@@ -40,14 +40,10 @@ class CreateOrderService {
       throw new AppError('User invalid, user doesnt exists',400 );
     }
 
-    const productsIds = products.map<IFindProduct>(product => ({
-      id: product.id,
-    }));
-
-    const productsInStock = await this.productsRepository.findAllById(
-      productsIds,
-    );
-
+    const productsInStock = await this.productsRepository.findAllById(products);
+    if (productsInStock.length < products.length){
+      throw new AppError(`Produto nao encontrado`, 400);
+    }
     const productsInOrder = productsInStock.map(stockProduct => {
       const product = products.find(prod => prod.id === stockProduct.id);
 

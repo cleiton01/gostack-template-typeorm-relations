@@ -21,7 +21,7 @@ class CreateCustomerService {
     // TODO
     const checkIfCustomerExists = await this.customersRepository.findByEmail(email);
 
-    if(!checkIfCustomerExists){
+    if(checkIfCustomerExists){
       throw new AppError('Email ja cadastro, por favor utilize a recuperacao de senha')
     }
 
